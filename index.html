@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Morning Briefing Quiz</title>
+<style>
+/* Layout: one centred column, one question card at a time feel, all questions visible, score bar sticky at bottom */
+:root{--bg:#f6f7f9;--card:#ffffff;--ink:#16202b;--muted:#5f6873;--navy:#1f3a5f;--line:#dde1e6;--up:#1a7a52;--dn:#c0392b;--sel:#e8eef6;
+--serif:Georgia,"Times New Roman",serif;--sans:Arial,Helvetica,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11161d;--card:#19212b;--ink:#e6eaef;--muted:#9aa4b0;--navy:#8fb0dc;--line:#2b3542;--up:#4fc08d;--dn:#ef7a6c;--sel:#22324a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#11161d;--card:#19212b;--ink:#e6eaef;--muted:#9aa4b0;--navy:#8fb0dc;--line:#2b3542;--up:#4fc08d;--dn:#ef7a6c;--sel:#22324a;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5}
+.wrap{max-width:680px;margin:0 auto;padding-block:28px 120px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1{font-family:var(--serif);font-size:32px;margin:0;text-wrap:balance}
+.meta{color:var(--muted);font-size:14px;margin:4px 0 0}
+.rule{border:0;border-top:3px double var(--ink);margin:14px 0 20px}
+.intro{font-family:var(--serif);font-size:17px;margin:0 0 20px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px;margin:0 0 14px}
+.qn{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--navy);font-weight:bold}
+.qt{font-family:var(--serif);font-size:18px;font-weight:bold;margin:6px 0 12px;text-wrap:balance}
+.opts{display:grid;gap:8px}
+button.opt{all:unset;box-sizing:border-box;display:block;width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:5px;font-size:15px;cursor:pointer;color:var(--ink);background:transparent}
+button.opt:hover:not([disabled]){background:var(--sel)}
+button.opt:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+button.opt[disabled]{cursor:default}
+button.opt.right{border-color:var(--up);color:var(--up);font-weight:bold}
+button.opt.wrong{border-color:var(--dn);color:var(--dn);text-decoration:line-through}
+.why{margin:10px 0 0;font-size:14px;color:var(--muted)}
+.why b{color:var(--ink)}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding-block:12px calc(12px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.bar .in{max-width:680px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.score{font-family:var(--serif);font-size:20px;font-weight:bold;font-variant-numeric:tabular-nums}
+.verdict{font-size:14px;color:var(--muted)}
+button.reset{all:unset;cursor:pointer;font-size:14px;color:var(--navy);border:1px solid var(--line);border-radius:5px;padding:7px 12px}
+button.reset:focus-visible{outline:2px solid var(--navy)}
+body{margin:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Morning Briefing Quiz</h1>
+  <p class="meta" id="meta"></p>
+  <hr class="rule">
+  <p class="intro" id="intro"></p>
+  <div id="quiz"></div>
+</div>
+<div class="bar"><div class="in"><div><div class="score" id="score">0 / 0</div><div class="verdict" id="verdict">Tap an answer to start.</div></div><button class="reset" id="reset" type="button">Start again</button></div></div>
+<script>
+/* QUIZ DATA: replaced daily. Each question: q, options (4), answer (index), why. */
+const QUIZ = {
+  date: "Tuesday 24 November 2026",
+  intro: "12 questions on today's Morning Briefing. Tap an answer to see whether you're right and why.",
+  questions: [
+    {q:"Why did Nvidia's board say it could reinstate Jensen Huang?",o:["An internal review cleared him","Shareholders voted for it","Input from senior levels of the US government","China dropped its probe"],a:2,w:"The board cited \"input from senior levels of the United States government\" and said his return poses no national security risk."},
+    {q:"Roughly how much were Nvidia shares up by midday New York on Monday?",o:["+8%","+15%","+32%","+50%"],a:2,w:"Nvidia was +32.45% at 166.26, after falling 22.9% the week before."},
+    {q:"What did Poland say crashed on its territory?",o:["A Russian fighter jet","Three Russian objects, likely two missiles and a drone","A Belarusian helicopter","A Ukrainian drone"],a:1,w:"Poland reported three Russian objects. NATO's North Atlantic Council met in Brussels on Monday."},
+    {q:"The International Court of Justice found which state committed genocide against the Rohingya?",o:["Bangladesh","Thailand","China","Myanmar"],a:3,w:"It is the first time the ICJ has found a state responsible under the 1948 Genocide Convention."},
+    {q:"COP31 was the first UN climate summit since which meeting to fail to adopt a final deal?",o:["Kyoto 1997","Copenhagen 2009","Paris 2015","Glasgow 2021"],a:1,w:"Saudi Arabia and other producers blocked fossil-fuel phase-out language in Antalya."},
+    {q:"In the latest Newspoll cited, who leads as preferred prime minister?",o:["Anthony Albanese, 45–38","Angus Taylor, 42–41","Pauline Hanson, 30–29","It's tied"],a:1,w:"Taylor leads 42% to 41%, with Labor and One Nation level on 27% primary."},
+    {q:"Labor's gas reservation bill would reserve up to what share of exporters' supply?",o:["5%","10%","20%","35%"],a:2,w:"Up to 20%, which would hit east-coast LNG exporters if it passes in that form."},
+    {q:"When does Australia's October CPI come out?",o:["Tuesday 10:00 AM","Wednesday 11:30 AM","Thursday 11:30 AM","Friday 9:00 AM"],a:1,w:"Wednesday 25 November at 11:30 AM AEDT. September's trimmed mean was 3.6%."},
+    {q:"CrowdStrike agreed to buy which company for about US$44bn?",o:["Palo Alto Networks","Okta","Zscaler","Cloudflare"],a:2,w:"Zscaler rose 13% and CrowdStrike fell 9.6% on the news."},
+    {q:"Why did Diageo overtake Pernod Ricard as India's biggest spirits company?",o:["Diageo bought Radico Khaitan","Pernod sold its Imperial Blue whisky brand","India raised whisky import tariffs","Diageo's sales doubled"],a:1,w:"Pernod India's revenue fell 13.6% after the sale, while Diageo's United Spirits grew 4.4%."},
+    {q:"Roughly how likely is a Fed rate hike on 9 December, according to bond markets?",o:["About 25%","About 50%","About 70%","About 92%"],a:3,w:"A December hike is about 92% priced, and Fed Governor Cook warned against getting \"behind the curve\"."},
+    {q:"What does today's word, apophenia, mean?",o:["Fear of public speaking","Seeing meaningful patterns in random things","A sudden reversal of fortune","Using long words to impress"],a:1,w:"From the German Apophänie, coined by Klaus Conrad in 1958 (Merriam-Webster)."}
+  ]
+};
+const $=s=>document.querySelector(s);
+let answered=0,correct=0;
+function verdict(){const n=QUIZ.questions.length;if(answered<n)return `${n-answered} to go.`;const p=correct/n;return p===1?"Perfect. You read every word.":p>=.75?"Strong. You'd hold your own on the desk.":p>=.5?"Passable. Skim the misses.":"Worth a second read of the brief."}
+function render(){
+  answered=0;correct=0;
+  $("#meta").textContent=QUIZ.date+" · "+QUIZ.questions.length+" questions";
+  $("#intro").textContent=QUIZ.intro;
+  const box=$("#quiz");box.innerHTML="";
+  QUIZ.questions.forEach((it,i)=>{
+    const d=document.createElement("div");d.className="q";
+    d.innerHTML=`<div class="qn">Question ${i+1}</div><div class="qt"></div><div class="opts"></div><p class="why" hidden></p>`;
+    d.querySelector(".qt").textContent=it.q;
+    const opts=d.querySelector(".opts");
+    it.o.forEach((t,j)=>{const b=document.createElement("button");b.type="button";b.className="opt";b.id=`q${i}o${j}`;b.textContent=t;
+      b.addEventListener("click",()=>{opts.querySelectorAll("button").forEach((x,k)=>{x.disabled=true;if(k===it.a)x.classList.add("right")});
+        if(j!==it.a)b.classList.add("wrong");else correct++;answered++;
+        const w=d.querySelector(".why");w.innerHTML=`<b>${j===it.a?"Correct.":"Not quite."}</b> `;w.append(document.createTextNode(it.w));w.hidden=false;update();});
+      opts.appendChild(b);});
+    box.appendChild(d);});
+  update();
+}
+function update(){$("#score").textContent=`${correct} / ${answered}`;$("#verdict").textContent=answered?verdict():"Tap an answer to start.";}
+$("#reset").addEventListener("click",()=>{render();window.scrollTo({top:0,behavior:"smooth"})});
+render();
+</script>
+</body>
+</html>
