@@ -50,21 +50,21 @@ body{margin:0}
 <script>
 /* QUIZ DATA: replaced daily. Each question: q, options (4), answer (index), why. */
 const QUIZ = {
-  date: "Tuesday 24 November 2026",
+  date: "Wednesday 25 November 2026",
   intro: "12 questions on today's Morning Briefing. Tap an answer to see whether you're right and why.",
   questions: [
-    {q:"Why did Nvidia's board say it could reinstate Jensen Huang?",o:["An internal review cleared him","Shareholders voted for it","Input from senior levels of the US government","China dropped its probe"],a:2,w:"The board cited \"input from senior levels of the United States government\" and said his return poses no national security risk."},
-    {q:"Roughly how much were Nvidia shares up by midday New York on Monday?",o:["+8%","+15%","+32%","+50%"],a:2,w:"Nvidia was +32.45% at 166.26, after falling 22.9% the week before."},
-    {q:"What did Poland say crashed on its territory?",o:["A Russian fighter jet","Three Russian objects, likely two missiles and a drone","A Belarusian helicopter","A Ukrainian drone"],a:1,w:"Poland reported three Russian objects. NATO's North Atlantic Council met in Brussels on Monday."},
-    {q:"The International Court of Justice found which state committed genocide against the Rohingya?",o:["Bangladesh","Thailand","China","Myanmar"],a:3,w:"It is the first time the ICJ has found a state responsible under the 1948 Genocide Convention."},
-    {q:"COP31 was the first UN climate summit since which meeting to fail to adopt a final deal?",o:["Kyoto 1997","Copenhagen 2009","Paris 2015","Glasgow 2021"],a:1,w:"Saudi Arabia and other producers blocked fossil-fuel phase-out language in Antalya."},
-    {q:"In the latest Newspoll cited, who leads as preferred prime minister?",o:["Anthony Albanese, 45–38","Angus Taylor, 42–41","Pauline Hanson, 30–29","It's tied"],a:1,w:"Taylor leads 42% to 41%, with Labor and One Nation level on 27% primary."},
-    {q:"Labor's gas reservation bill would reserve up to what share of exporters' supply?",o:["5%","10%","20%","35%"],a:2,w:"Up to 20%, which would hit east-coast LNG exporters if it passes in that form."},
-    {q:"When does Australia's October CPI come out?",o:["Tuesday 10:00 AM","Wednesday 11:30 AM","Thursday 11:30 AM","Friday 9:00 AM"],a:1,w:"Wednesday 25 November at 11:30 AM AEDT. September's trimmed mean was 3.6%."},
-    {q:"CrowdStrike agreed to buy which company for about US$44bn?",o:["Palo Alto Networks","Okta","Zscaler","Cloudflare"],a:2,w:"Zscaler rose 13% and CrowdStrike fell 9.6% on the news."},
-    {q:"Why did Diageo overtake Pernod Ricard as India's biggest spirits company?",o:["Diageo bought Radico Khaitan","Pernod sold its Imperial Blue whisky brand","India raised whisky import tariffs","Diageo's sales doubled"],a:1,w:"Pernod India's revenue fell 13.6% after the sale, while Diageo's United Spirits grew 4.4%."},
-    {q:"Roughly how likely is a Fed rate hike on 9 December, according to bond markets?",o:["About 25%","About 50%","About 70%","About 92%"],a:3,w:"A December hike is about 92% priced, and Fed Governor Cook warned against getting \"behind the curve\"."},
-    {q:"What does today's word, apophenia, mean?",o:["Fear of public speaking","Seeing meaningful patterns in random things","A sudden reversal of fortune","Using long words to impress"],a:1,w:"From the German Apophänie, coined by Klaus Conrad in 1958 (Merriam-Webster)."}
+    {q:"Roughly how far did Nvidia shares fall on Tuesday, after Monday's 31% jump?",o:["About 1%","About 7%","About 20%","They rose again"],a:1,w:"Nvidia fell about 7% as chip stocks gave back part of the Huang rally."},
+    {q:"Which US index was UP at 1:23 PM New York on Tuesday?",o:["Nasdaq","S&P 500","Dow","None of them"],a:2,w:"The Dow was up 0.81% while the S&P 500 fell 0.48% and the Nasdaq 1.43%."},
+    {q:"Which newspaper reported the new US tariff plan on China, the EU and 14 other economies?",o:["The Wall Street Journal","The Financial Times","The Washington Post","The Guardian"],a:0,w:"The WSJ reported the USTR plan, which could be released as soon as this week."},
+    {q:"What tariff rate are the EU, Japan and South Korea likely to face under the reported plan?",o:["50% or more","25%","Zero","15% or lower"],a:3,w:"They would likely face 15% or lower, matching their trade deals; China would face the steepest rate."},
+    {q:"How much did the ASX 200 rise on Tuesday?",o:["0.3%","1.8%","4.7%","It fell"],a:1,w:"The ASX 200 closed up 1.8% at 8,726, its first daily gain in nearly two weeks."},
+    {q:"Under the proposed digital duty of care law, fines could reach what share of a platform's worldwide revenue?",o:["1%","10%","25%","5%"],a:3,w:"Up to 5% of global revenue, versus a previously proposed A$109 million cap."},
+    {q:"The PBS cap on a prescription is frozen at what price until 2030?",o:["$25","$7.70","$31.60","$42.50"],a:0,w:"The government extended its medicines price freeze, keeping the maximum at $25."},
+    {q:"What does Iran's IRGC say happened to three tankers in the Strait of Hormuz?",o:["They were seized","They were escorted out by the US Navy","They caught fire after hitting mines","They ran aground"],a:2,w:"The IRGC says three tankers caught fire after hitting naval mines."},
+    {q:"How many conditions has Iran's top negotiator set before any talks with the US?",o:["Three","Five","Twelve","Seven"],a:3,w:"Tehran demands seven conditions be met before holding any talks."},
+    {q:"Anthropic shares slipped below what IPO price?",o:["US$50","US$83","US$100","US$165"],a:1,w:"Reuters had the stock at US$81.60 early, below its US$83 IPO price."},
+    {q:"Which Australian music legend died at 83, his family announced?",o:["Molly Meldrum","John Farnham","Jimmy Barnes","Daryl Braithwaite"],a:0,w:"Ian 'Molly' Meldrum died peacefully on Monday after several days in hospital."},
+    {q:"What does 'quiddity' mean?",o:["A sudden reversal","A small coin","Excessive caution","The essence of a thing"],a:3,w:"Merriam-Webster: whatever makes something the type that it is; also a trifling point."}
   ]
 };
 const $=s=>document.querySelector(s);
