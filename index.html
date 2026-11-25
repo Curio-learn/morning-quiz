@@ -50,21 +50,21 @@ body{margin:0}
 <script>
 /* QUIZ DATA: replaced daily. Each question: q, options (4), answer (index), why. */
 const QUIZ = {
-  date: "Wednesday 25 November 2026",
+  date: "Thursday 26 November 2026",
   intro: "12 questions on today's Morning Briefing. Tap an answer to see whether you're right and why.",
   questions: [
-    {q:"Roughly how far did Nvidia shares fall on Tuesday, after Monday's 31% jump?",o:["About 1%","About 7%","About 20%","They rose again"],a:1,w:"Nvidia fell about 7% as chip stocks gave back part of the Huang rally."},
-    {q:"Which US index was UP at 1:23 PM New York on Tuesday?",o:["Nasdaq","S&P 500","Dow","None of them"],a:2,w:"The Dow was up 0.81% while the S&P 500 fell 0.48% and the Nasdaq 1.43%."},
-    {q:"Which newspaper reported the new US tariff plan on China, the EU and 14 other economies?",o:["The Wall Street Journal","The Financial Times","The Washington Post","The Guardian"],a:0,w:"The WSJ reported the USTR plan, which could be released as soon as this week."},
-    {q:"What tariff rate are the EU, Japan and South Korea likely to face under the reported plan?",o:["50% or more","25%","Zero","15% or lower"],a:3,w:"They would likely face 15% or lower, matching their trade deals; China would face the steepest rate."},
-    {q:"How much did the ASX 200 rise on Tuesday?",o:["0.3%","1.8%","4.7%","It fell"],a:1,w:"The ASX 200 closed up 1.8% at 8,726, its first daily gain in nearly two weeks."},
-    {q:"Under the proposed digital duty of care law, fines could reach what share of a platform's worldwide revenue?",o:["1%","10%","25%","5%"],a:3,w:"Up to 5% of global revenue, versus a previously proposed A$109 million cap."},
-    {q:"The PBS cap on a prescription is frozen at what price until 2030?",o:["$25","$7.70","$31.60","$42.50"],a:0,w:"The government extended its medicines price freeze, keeping the maximum at $25."},
-    {q:"What does Iran's IRGC say happened to three tankers in the Strait of Hormuz?",o:["They were seized","They were escorted out by the US Navy","They caught fire after hitting mines","They ran aground"],a:2,w:"The IRGC says three tankers caught fire after hitting naval mines."},
-    {q:"How many conditions has Iran's top negotiator set before any talks with the US?",o:["Three","Five","Twelve","Seven"],a:3,w:"Tehran demands seven conditions be met before holding any talks."},
-    {q:"Anthropic shares slipped below what IPO price?",o:["US$50","US$83","US$100","US$165"],a:1,w:"Reuters had the stock at US$81.60 early, below its US$83 IPO price."},
-    {q:"Which Australian music legend died at 83, his family announced?",o:["Molly Meldrum","John Farnham","Jimmy Barnes","Daryl Braithwaite"],a:0,w:"Ian 'Molly' Meldrum died peacefully on Monday after several days in hospital."},
-    {q:"What does 'quiddity' mean?",o:["A sudden reversal","A small coin","Excessive caution","The essence of a thing"],a:3,w:"Merriam-Webster: whatever makes something the type that it is; also a trifling point."}
+    {q:"How far was the Nasdaq down at 9:53 AM New York on Wednesday?",o:["About 1%", "About 2%", "About 4%", "It was up"],a:2,w:"The Nasdaq was down 4.15% early in the session."},
+    {q:"What was Australia's headline annual CPI for October?",o:["3.8%", "4.3%", "4.9%", "5.6%"],a:2,w:"Headline CPI rose to 4.9% from 4.3%, a three-year high."},
+    {q:"What core inflation rate did Australia print, versus the RBA's 3.6% forecast?",o:["3.8%", "3.2%", "3.6%", "4.9%"],a:0,w:"Core inflation came in at 3.8%, above consensus and the RBA's forecast."},
+    {q:"What drove about half of the rise in headline inflation, per the ABC?",o:["Rent", "Electricity", "Fuel", "Food"],a:2,w:"Fuel accounted for about half the increase."},
+    {q:"What was US Q3 GDP growth, against a 3.5% forecast?",o:["2.1%", "4.3%", "3.5%", "5.0%"],a:1,w:"Q3 GDP came in at 4.3%, above the 3.5% forecast."},
+    {q:"What chance did traders put on a December Fed rate hike?",o:["50%", "63%", "75%", "97%"],a:3,w:"CME FedWatch showed a 97% chance of a December hike (and 63% for January)."},
+    {q:"Which Pacific nation signed a security pact with Australia?",o:["Fiji", "Solomon Islands", "Vanuatu", "Papua New Guinea"],a:1,w:"Australia and Solomon Islands signed the pact, seen as a blow to China."},
+    {q:"Which consultancy was suspended from WA government contracts over an AI-riddled report?",o:["PwC", "KPMG", "EY", "Deloitte"],a:3,w:"Deloitte was suspended after its report on a WA university merger."},
+    {q:"Which company did a US jury convict of stealing trade secrets and evading Iran sanctions?",o:["Huawei", "ZTE", "TikTok", "Alibaba"],a:0,w:"A US jury found Huawei guilty."},
+    {q:"What does 'lacuna' mean?",o:["A small lake", "A gap or missing part", "A sudden profit", "A Roman coin"],a:1,w:"Merriam-Webster: a blank space or a missing part."},
+    {q:"Who wrote \"Experience is the name everyone gives to their mistakes\"?",o:["Mark Twain", "George Bernard Shaw", "Oscar Wilde", "Dorothy Parker"],a:2,w:"Oscar Wilde, in Lady Windermere's Fan (1892)."},
+    {q:"Which animal produces cube-shaped poo?",o:["Koala", "Wombat", "Echidna", "Platypus"],a:1,w:"Wombats: grooves in the last 8% of the intestine shape it into cubes."}
   ]
 };
 const $=s=>document.querySelector(s);
