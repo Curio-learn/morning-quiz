@@ -50,21 +50,21 @@ body{margin:0}
 <script>
 /* QUIZ DATA: replaced daily. Each question: q, options (4), answer (index), why. */
 const QUIZ = {
-  date: "Thursday 26 November 2026",
+  date: "Saturday 28 November 2026",
   intro: "12 questions on today's Morning Briefing. Tap an answer to see whether you're right and why.",
   questions: [
-    {q:"How far was the Nasdaq down at 9:53 AM New York on Wednesday?",o:["About 1%", "About 2%", "About 4%", "It was up"],a:2,w:"The Nasdaq was down 4.15% early in the session."},
-    {q:"What was Australia's headline annual CPI for October?",o:["3.8%", "4.3%", "4.9%", "5.6%"],a:2,w:"Headline CPI rose to 4.9% from 4.3%, a three-year high."},
-    {q:"What core inflation rate did Australia print, versus the RBA's 3.6% forecast?",o:["3.8%", "3.2%", "3.6%", "4.9%"],a:0,w:"Core inflation came in at 3.8%, above consensus and the RBA's forecast."},
-    {q:"What drove about half of the rise in headline inflation, per the ABC?",o:["Rent", "Electricity", "Fuel", "Food"],a:2,w:"Fuel accounted for about half the increase."},
-    {q:"What was US Q3 GDP growth, against a 3.5% forecast?",o:["2.1%", "4.3%", "3.5%", "5.0%"],a:1,w:"Q3 GDP came in at 4.3%, above the 3.5% forecast."},
-    {q:"What chance did traders put on a December Fed rate hike?",o:["50%", "63%", "75%", "97%"],a:3,w:"CME FedWatch showed a 97% chance of a December hike (and 63% for January)."},
-    {q:"Which Pacific nation signed a security pact with Australia?",o:["Fiji", "Solomon Islands", "Vanuatu", "Papua New Guinea"],a:1,w:"Australia and Solomon Islands signed the pact, seen as a blow to China."},
-    {q:"Which consultancy was suspended from WA government contracts over an AI-riddled report?",o:["PwC", "KPMG", "EY", "Deloitte"],a:3,w:"Deloitte was suspended after its report on a WA university merger."},
-    {q:"Which company did a US jury convict of stealing trade secrets and evading Iran sanctions?",o:["Huawei", "ZTE", "TikTok", "Alibaba"],a:0,w:"A US jury found Huawei guilty."},
-    {q:"What does 'lacuna' mean?",o:["A small lake", "A gap or missing part", "A sudden profit", "A Roman coin"],a:1,w:"Merriam-Webster: a blank space or a missing part."},
-    {q:"Who wrote \"Experience is the name everyone gives to their mistakes\"?",o:["Mark Twain", "George Bernard Shaw", "Oscar Wilde", "Dorothy Parker"],a:2,w:"Oscar Wilde, in Lady Windermere's Fan (1892)."},
-    {q:"Which animal produces cube-shaped poo?",o:["Koala", "Wombat", "Echidna", "Platypus"],a:1,w:"Wombats: grooves in the last 8% of the intestine shape it into cubes."}
+    {q:"How much did the S&P 500 rise in Friday's shortened session?",o:["0.6%", "1.60%", "2.31%", "4.69%"],a:1,w:"The S&P 500 closed up 1.60% at 7,297.49."},
+    {q:"Which index jumped 4.69% on Friday?",o:["Dow Jones", "Russell 2000", "Nasdaq Composite", "Philadelphia semiconductor index"],a:3,w:"Chip stocks led the rebound, with the semiconductor index up 4.69%."},
+    {q:"How much did the Nasdaq Composite gain over the week?",o:["6.68%", "2.31%", "5.46%", "9.1%"],a:0,w:"The Nasdaq rose from 22,617.73 to 24,129.50, up 6.68% for the week."},
+    {q:"Who has launched a trade-secrets countersuit against Apple, per the FT?",o:["Google", "Samsung", "OpenAI", "Nvidia"],a:2,w:"OpenAI accused Apple of stealing trade secrets."},
+    {q:"What did Salesforce forecast for Black Friday sales?",o:["$7.1 billion", "$83 billion", "$45 billion", "$150 billion"],a:1,w:"Salesforce sees Black Friday sales hitting $83 billion; Thanksgiving itself delivered a record $7.1 billion."},
+    {q:"What was Albanese's Newspoll net approval, a new low?",o:["Minus 12", "Minus 22", "Minus 41", "Minus 31"],a:3,w:"Net approval fell to minus 31, with Labor and One Nation tied at 27% primary."},
+    {q:"Which Liberal senator defected to One Nation?",o:["Leah Blyth", "Jane Hume", "Sarah Henderson", "Maria Kovacic"],a:0,w:"South Australian senator Leah Blyth announced her defection on Thursday."},
+    {q:"Which state is carved out of the new national gas reservation scheme?",o:["Queensland", "Western Australia", "Victoria", "Northern Territory"],a:1,w:"WA is carved out because it has had its own 15% reservation policy since 2006."},
+    {q:"Who leads the Coalition into today's Victorian election?",o:["Brad Battin", "Matthew Guy", "Jess Wilson", "John Pesutto"],a:2,w:"Jess Wilson leads the Coalition against Labor's Jacinta Allan."},
+    {q:"What is OPEC+ expected to do at Sunday's meeting?",o:["Cut output sharply", "Keep output targets unchanged through at least Q1 2027", "Raise output by 1 million barrels a day", "Suspend quotas"],a:1,w:"Reuters reported an in-principle deal to hold targets through at least the first quarter of 2027."},
+    {q:"What does 'apophenia' mean?",o:["Seeing meaningful patterns in random things", "Fear of open spaces", "A sudden loss of speech", "Excessive optimism"],a:0,w:"Merriam-Webster: the tendency to perceive a meaningful pattern between unrelated or random things."},
+    {q:"How many hearts does an octopus have?",o:["One", "Two", "Four", "Three"],a:3,w:"Octopuses have three hearts and blue, copper-based blood."}
   ]
 };
 const $=s=>document.querySelector(s);
